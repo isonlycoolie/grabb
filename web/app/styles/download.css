@@ -17,7 +17,7 @@
 .preview-title { display: -webkit-box; overflow: hidden; margin: 6px 0 2px; font-size: var(--text-lg); font-weight: 600; line-height: 1.35; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
 .preview-meta { color: var(--text-tertiary); }
 .preview-options { display: grid; gap: 16px; }
-.field { display: grid; gap: 8px; }
+.field { display: grid; justify-items: start; gap: 8px; }
 .field-label { color: var(--text-tertiary); font-size: var(--text-sm); font-weight: 600; }
 .check { display: flex; align-items: flex-start; gap: 10px; cursor: pointer; }
 .check input { margin: 3px 0 0; accent-color: var(--accent); }
