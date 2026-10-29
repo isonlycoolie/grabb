@@ -1,12 +1,23 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
   <defs>
-    <linearGradient id="grabb-fill" x1="8" y1="4" x2="56" y2="60" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#5B80FF"/>
-      <stop offset="1" stop-color="#2A4BDB"/>
+    <linearGradient id="grabb-base" x1="8" y1="0" x2="56" y2="64" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7690FF"/>
+      <stop offset="0.55" stop-color="#4363F0"/>
+      <stop offset="1" stop-color="#2B3FC8"/>
     </linearGradient>
+    <linearGradient id="grabb-sheen" x1="32" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="grabb-shadow" x="0" y="0" width="64" height="64" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="1.25" stdDeviation="1.25" flood-color="#14237A" flood-opacity="0.4"/>
+    </filter>
   </defs>
-  <rect width="64" height="64" rx="16" fill="url(#grabb-fill)"/>
-  <circle cx="29" cy="26" r="10" stroke="#fff" stroke-width="5.5"/>
-  <path d="M39 16v28" stroke="#fff" stroke-width="5.5" stroke-linecap="round"/>
-  <path d="M31.5 37.5 39 45l7.5-7.5" stroke="#fff" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect width="64" height="64" rx="15" fill="url(#grabb-base)"/>
+  <path d="M15 0h34a15 15 0 0 1 15 15v17H0V15A15 15 0 0 1 15 0Z" fill="url(#grabb-sheen)"/>
+  <g filter="url(#grabb-shadow)" stroke="#fff" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="29.5" cy="25" r="8"/>
+    <path d="M37.5 17v29"/>
+    <path d="M32.5 41l5 5 5-5"/>
+  </g>
 </svg>
