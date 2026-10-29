@@ -73,6 +73,28 @@ right inside grabb, show them in their folder, or save a copy.
 
 <img src="https://github.com/isonlycoolie/grabb/raw/assets/grabb-readme/player-dark.png" alt="Playing a song inside grabb">
 
+## Options
+
+Add any of these after `start.cmd` or `start.sh`, for example `./start.sh -out ~/Videos`.
+
+| Option | What it does |
+| --- | --- |
+| `-out <folder>` | Save files somewhere other than Downloads/grabb. |
+| `-addr 0.0.0.0:7878` | Use grabb from your phone on the same Wi-Fi. Only do this on networks you trust. |
+| `-workers <n>` | How many downloads run at once (default 2). |
+| `-no-open` | Do not open the browser on start. |
+
+## Questions
+
+**Is it really free?** Yes. grabb is MIT licensed and always will be.
+
+**A site stopped working.** Sites change often, so update yt-dlp: `winget upgrade yt-dlp.yt-dlp`
+on Windows, `brew upgrade yt-dlp` on macOS, or `yt-dlp -U` on Linux. Then try again. If it still fails, [open an issue](https://github.com/isonlycoolie/grabb/issues).
+
+**Can I download anything I want?** Use grabb for your own content, content under an open
+license, and content you have permission to save. Respect the rules of each site and the rights
+of creators.
+
 ## For developers
 
 grabb is a single Go program with the dashboard built in. It drives
