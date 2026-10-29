@@ -5,19 +5,14 @@
       <stop offset="0.55" stop-color="#4363F0"/>
       <stop offset="1" stop-color="#2B3FC8"/>
     </linearGradient>
-    <linearGradient id="grabb-sheen" x1="32" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#fff" stop-opacity="0.22"/>
-      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
-    </linearGradient>
-    <filter id="grabb-shadow" x="0" y="0" width="64" height="64" filterUnits="userSpaceOnUse">
-      <feDropShadow dx="0" dy="1.25" stdDeviation="1.25" flood-color="#14237A" flood-opacity="0.4"/>
-    </filter>
+    <!-- The pill, with its right end hollowed into a G. -->
+    <mask id="grabb-g" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <rect x="9" y="20" width="46" height="24" rx="12" fill="#fff"/>
+      <circle cx="43" cy="32" r="9" fill="#000"/>
+      <path d="M43 30.5H66V12Z" fill="#000"/>
+      <rect x="43" y="30.5" width="12" height="3" fill="#fff"/>
+    </mask>
   </defs>
   <rect width="64" height="64" rx="15" fill="url(#grabb-base)"/>
-  <path d="M15 0h34a15 15 0 0 1 15 15v17H0V15A15 15 0 0 1 15 0Z" fill="url(#grabb-sheen)"/>
-  <g filter="url(#grabb-shadow)" stroke="#fff" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round">
-    <circle cx="29.5" cy="25" r="8"/>
-    <path d="M37.5 17v29"/>
-    <path d="M32.5 41l5 5 5-5"/>
-  </g>
+  <rect width="64" height="64" fill="#fff" mask="url(#grabb-g)"/>
 </svg>
