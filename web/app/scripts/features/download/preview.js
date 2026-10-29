@@ -21,7 +21,7 @@ export function createPreview(url, info, onQueued) {
   function render() {
     const video = choice.mode === "video";
     const qualities = [[0, best ? `Best · ${fmt.resolution(best)}` : "Best"], ...resolutions.slice(1).map((r) => [r, fmt.resolution(r)])];
-    options.replaceChildren(
+    options.replaceChildren(...[
       field("Format", segmented([["video", "Video", "video", !best], ["audio", "Audio", "music"]], choice.mode,
         (mode) => update({ mode }, true), "Format")),
       video
@@ -30,7 +30,7 @@ export function createPreview(url, info, onQueued) {
       video && h("label", { class: "check" },
         h("input", { type: "checkbox", checked: choice.compatible, onchange: (e) => update({ compatible: e.target.checked }) }),
         h("span", {}, "Plays everywhere", h("small", {}, "H.264 MP4 for older phones, TVs and editors. May be below the best quality."))),
-    );
+    ].filter(Boolean));
     label();
   }
 
