@@ -58,7 +58,7 @@ func parseLine(line string) (Event, bool) {
 	if rest, ok := strings.CutPrefix(line, markFile); ok {
 		return Event{File: rest}, true
 	}
-	return Event{}, false
+	return parseAria2(line)
 }
 
 // parseProgress reads the fields of progressTemplate. yt-dlp prints NA for
