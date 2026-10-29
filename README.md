@@ -16,10 +16,13 @@
   <img src="https://img.shields.io/badge/quality-up%20to%208K%2060fps-3e63dd" alt="Up to 8K 60fps">
 </p>
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/isonlycoolie/grabb/raw/assets/grabb-readme/download-dark.png">
-  <img src="https://github.com/isonlycoolie/grabb/raw/assets/grabb-readme/download-light.png" alt="The grabb download page with a video ready to save">
-</picture>
+<p align="center">
+  <a href="https://github.com/isonlycoolie/grabb/raw/assets/grabb-readme/grabb-demo.mp4">
+    <img src="https://github.com/isonlycoolie/grabb/raw/assets/grabb-readme/grabb-demo.gif" alt="grabb demo: paste a link, fetch it, choose audio, download and play it" width="100%">
+  </a>
+  <br>
+  <sub>35 seconds: paste a link, fetch it, choose a format, download, play. <a href="https://github.com/isonlycoolie/grabb/raw/assets/grabb-readme/grabb-demo.mp4">Watch in HD</a></sub>
+</p>
 
 ## Get started
 
