@@ -72,6 +72,7 @@ export function renderDownload({ page }) {
 
   page.append(h("div", { class: "page-inner" },
     h("section", { class: "hero" },
+      h("img", { class: "hero-logo", src: "assets/logo.svg", alt: "grabb", width: 48, height: 48 }),
       h("h1", {}, "Paste a link. Get the file."),
       h("p", {}, "Video or audio from social networks in the best quality they serve, up to 8K and 60fps, saved straight to your computer."),
       form, error,

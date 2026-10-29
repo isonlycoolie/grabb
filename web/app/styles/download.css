@@ -1,5 +1,6 @@
 /* Download page: link bar, supported networks and media preview. */
 .hero { display: grid; gap: 14px; }
+.hero-logo { width: 48px; height: 48px; border-radius: var(--radius-lg); box-shadow: var(--shadow-light); }
 .hero h1 { font-size: var(--text-2xl); font-weight: 600; letter-spacing: -0.02em; line-height: 1.2; }
 .hero > p { max-width: 560px; color: var(--text-secondary); font-size: 14px; }
 .link-form { display: flex; gap: 8px; margin-top: 8px; padding: 6px; background: var(--bg-primary); border: 1px solid var(--border); border-radius: var(--radius-lg); box-shadow: var(--shadow-light); transition: border-color var(--fast), box-shadow var(--fast); }
