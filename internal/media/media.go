@@ -25,7 +25,7 @@ type Info struct {
 	Site        string  `json:"site"`
 	Thumbnail   string  `json:"thumbnail"`
 	Duration    float64 `json:"duration"`
-	Resolutions []int   `json:"resolutions"` // shorter side of each video stream, highest first
+	Resolutions []int   `json:"resolutions"` // standard quality names (1080 for 1080p), highest first
 }
 
 type rawInfo struct {
@@ -79,10 +79,7 @@ func (r rawInfo) info() Info {
 		Site: r.ExtractorKey, Thumbnail: r.Thumbnail, Duration: r.Duration,
 	}
 	for _, f := range r.Formats {
-		res := f.Height
-		if f.Width > 0 && f.Width < res {
-			res = f.Width // portrait video: quality follows the shorter side
-		}
+		res := nominal(f.Width, f.Height)
 		if res > 0 && f.VCodec != "none" && !slices.Contains(info.Resolutions, res) {
 			info.Resolutions = append(info.Resolutions, res)
 		}
@@ -90,3 +87,24 @@ func (r rawInfo) info() Info {
 	slices.SortFunc(info.Resolutions, func(a, b int) int { return b - a })
 	return info
 }
+
+var ladder = []int{144, 240, 360, 480, 720, 1080, 1440, 2160, 4320}
+
+// nominal names a stream the way sites do. The long side decides, so a
+// 1920x818 film, a 1920x1080 video and a 1080x1920 short are all 1080p.
+func nominal(width, height int) int {
+	long := max(width, height)
+	if long == 0 {
+		return 0
+	}
+	target := long * 9 / 16
+	best := ladder[0]
+	for _, step := range ladder {
+		if abs(step-target) < abs(best-target) {
+			best = step
+		}
+	}
+	return best
+}
+
+func abs(n int) int { return max(n, -n) }
