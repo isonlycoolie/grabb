@@ -46,6 +46,7 @@ func New(m *jobs.Manager, probe Prober, reveal Revealer, settings Settings, web 
 	mux.HandleFunc("POST /api/jobs/{id}/reveal", s.revealJob)
 	mux.HandleFunc("DELETE /api/jobs/{id}", s.deleteJob)
 	mux.HandleFunc("GET /api/jobs/{id}/file", s.jobFile)
+	mux.HandleFunc("GET /api/events", s.events)
 	mux.Handle("GET /", http.FileServerFS(web))
 	return guard(mux)
 }
