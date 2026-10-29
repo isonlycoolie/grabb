@@ -43,7 +43,9 @@ func New(m *jobs.Manager, probe Prober, reveal Revealer, settings Settings, web 
 	mux.HandleFunc("POST /api/jobs", s.createJob)
 	mux.HandleFunc("POST /api/jobs/{id}/cancel", s.cancelJob)
 	mux.HandleFunc("POST /api/jobs/{id}/retry", s.retryJob)
+	mux.HandleFunc("POST /api/jobs/{id}/reveal", s.revealJob)
 	mux.HandleFunc("DELETE /api/jobs/{id}", s.deleteJob)
+	mux.HandleFunc("GET /api/jobs/{id}/file", s.jobFile)
 	mux.Handle("GET /", http.FileServerFS(web))
 	return guard(mux)
 }
