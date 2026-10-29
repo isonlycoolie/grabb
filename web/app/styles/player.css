@@ -1,0 +1,32 @@
+/* In-app player for finished videos and songs. */
+.player {
+  width: min(960px, calc(100vw - 32px));
+  max-height: calc(100dvh - 32px);
+  padding: 0;
+  overflow: hidden;
+  background: var(--bg-primary);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-heavy);
+  animation: player-in var(--normal) var(--ease);
+}
+.player::backdrop { background: var(--overlay); backdrop-filter: blur(4px); animation: fade-in var(--normal) var(--ease); }
+.player.closing { animation: player-out var(--fast) ease-in forwards; }
+.player.closing::backdrop { animation: fade-out var(--fast) ease-in forwards; }
+.player-head { display: flex; align-items: center; gap: 10px; padding: 10px 10px 10px 16px; border-bottom: 1px solid var(--border-light); }
+.player-head h2 { flex: 1; min-width: 0; overflow: hidden; font-size: var(--text-md); font-weight: 600; text-overflow: ellipsis; white-space: nowrap; }
+.player-video { width: 100%; max-height: calc(100dvh - 140px); background: #000; }
+.player-audio { position: relative; display: grid; justify-items: center; gap: 20px; padding: 40px 24px 32px; overflow: hidden; }
+.player-audio .backdrop { position: absolute; inset: -40px; background-position: center; background-size: cover; filter: blur(40px) saturate(1.4); opacity: 0.35; }
+.player-audio .art { position: relative; width: min(320px, 70vw); aspect-ratio: 1; overflow: hidden; border-radius: var(--radius-md); background: var(--bg-tertiary); box-shadow: var(--shadow-strong); display: grid; place-items: center; color: var(--text-tertiary); }
+.player-audio .art img { width: 100%; height: 100%; object-fit: cover; }
+.player-audio audio { position: relative; width: min(480px, 100%); }
+.player-note { display: flex; align-items: center; gap: 8px; padding: 32px 24px; color: var(--text-secondary); }
+.player-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: 10px 16px; border-top: 1px solid var(--border-light); color: var(--text-tertiary); font-size: var(--text-sm); }
+.player-foot .actions { display: flex; gap: 8px; margin-left: auto; }
+
+@keyframes player-in { from { opacity: 0; transform: translateY(12px) scale(0.97); } }
+@keyframes player-out { to { opacity: 0; transform: translateY(8px) scale(0.98); } }
+@keyframes fade-in { from { opacity: 0; } }
+@keyframes fade-out { to { opacity: 0; } }
