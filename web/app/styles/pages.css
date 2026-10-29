@@ -1,0 +1,20 @@
+/* Library and settings pages. */
+.library-tools { display: flex; flex-wrap: wrap; gap: 8px; }
+.library-tools .input { width: 220px; }
+
+.settings-group { overflow: hidden; }
+.settings-group h2 { padding: 12px 16px; border-bottom: 1px solid var(--border-light); font-size: var(--text-md); font-weight: 600; }
+.setting { display: grid; grid-template-columns: 200px minmax(0, 1fr); align-items: center; gap: 16px; min-height: 44px; padding: 8px 16px; border-top: 1px solid var(--border-light); }
+.setting:first-child { border-top: 0; }
+.setting dt { color: var(--text-tertiary); }
+.setting dd { overflow-wrap: anywhere; }
+.setting a { color: var(--accent-text); font-weight: 500; }
+.setting code { padding: 2px 6px; border-radius: var(--radius-sm); background: var(--bg-tertiary); font: 12px var(--mono); }
+.missing { color: var(--warning); }
+
+@media (max-width: 640px) {
+  .page-actions,
+  .library-tools,
+  .library-tools .input { width: 100%; margin-left: 0; }
+  .setting { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+}
