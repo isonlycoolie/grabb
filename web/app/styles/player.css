@@ -11,6 +11,7 @@
   box-shadow: var(--shadow-heavy);
   animation: player-in var(--normal) var(--ease);
 }
+.player:focus { outline: none; }
 .player::backdrop { background: var(--overlay); backdrop-filter: blur(4px); animation: fade-in var(--normal) var(--ease); }
 .player.closing { animation: player-out var(--fast) ease-in forwards; }
 .player.closing::backdrop { animation: fade-out var(--fast) ease-in forwards; }
@@ -19,7 +20,7 @@
 .player-video { width: 100%; max-height: calc(100dvh - 140px); background: #000; }
 .player-audio { position: relative; display: grid; justify-items: center; gap: 20px; padding: 40px 24px 32px; overflow: hidden; }
 .player-audio .backdrop { position: absolute; inset: -40px; background-position: center; background-size: cover; filter: blur(40px) saturate(1.4); opacity: 0.35; }
-.player-audio .art { position: relative; width: min(320px, 70vw); aspect-ratio: 1; overflow: hidden; border-radius: var(--radius-md); background: var(--bg-tertiary); box-shadow: var(--shadow-strong); display: grid; place-items: center; color: var(--text-tertiary); }
+.player-audio .art { position: relative; width: min(480px, 80vw); aspect-ratio: 16 / 9; overflow: hidden; border-radius: var(--radius-md); background: var(--bg-tertiary); box-shadow: var(--shadow-strong); display: grid; place-items: center; color: var(--text-tertiary); }
 .player-audio .art img { width: 100%; height: 100%; object-fit: cover; }
 .player-audio audio { position: relative; width: min(480px, 100%); }
 .player-note { display: flex; align-items: center; gap: 8px; padding: 32px 24px; color: var(--text-secondary); }

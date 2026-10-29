@@ -8,14 +8,14 @@ export function openPlayer(job) {
   const src = api.fileURL(job.id, true);
   const audio = job.options.mode === "audio";
   const media = audio
-    ? h("audio", { src, controls: true, autoplay: true, autofocus: true, preload: "auto" })
-    : h("video", { class: "player-video", src, controls: true, autoplay: true, playsinline: true, autofocus: true, preload: "auto" });
+    ? h("audio", { src, controls: true, autoplay: true, preload: "auto" })
+    : h("video", { class: "player-video", src, controls: true, autoplay: true, playsinline: true, preload: "auto" });
   const stage = audio ? audioStage(job, media) : media;
 
   media.addEventListener("error", () => stage.replaceWith(h("p", { class: "player-note" }, icon("alert"),
     "Your browser can't play this file's format. Open it from its folder to watch it in your media player.")), { once: true });
 
-  const dialog = h("dialog", { class: "player", "aria-label": job.title || "Player" },
+  const dialog = h("dialog", { class: "player", "aria-label": job.title || "Player", autofocus: true },
     h("header", { class: "player-head" }, h("h2", {}, job.title || "Untitled"),
       h("button", { class: "btn btn-ghost icon-button", type: "button", "aria-label": "Close", onclick: close }, icon("x"))),
     stage,
@@ -46,7 +46,11 @@ export function openPlayer(job) {
   dialog.addEventListener("click", (event) => {
     if (event.target === dialog) close();
   });
-  dialog.addEventListener("close", () => dialog.remove());
+  dialog.addEventListener("close", () => {
+    removeEventListener("hashchange", close);
+    dialog.remove();
+  });
+  addEventListener("hashchange", close);
   document.body.append(dialog);
   dialog.showModal();
 }
