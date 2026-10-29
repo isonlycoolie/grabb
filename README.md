@@ -18,7 +18,7 @@
 
 <p align="center">
   <a href="https://github.com/isonlycoolie/grabb/raw/assets/grabb-readme/grabb-demo.mp4">
-    <img src="https://github.com/isonlycoolie/grabb/raw/assets/grabb-readme/grabb-demo.gif" alt="grabb demo: paste a link, fetch it, choose audio, download and play it" width="100%">
+    <img src="https://github.com/isonlycoolie/grabb/raw/assets/grabb-readme/demo.gif" alt="grabb demo: paste a link, fetch it, choose audio, download and play it" width="800" height="450">
   </a>
   <br>
   <sub>Paste a link, fetch it, choose a format, download, play. <a href="https://github.com/isonlycoolie/grabb/raw/assets/grabb-readme/grabb-demo.mp4">Watch in HD</a></sub>
